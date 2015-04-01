@@ -71,24 +71,7 @@ function infopage1 () {
 function update() {
 	if(this.nums.g1.onTap)
 	{
-	/*
 		make1()
-		
-		 
-		 
-		 if(numCount===4){
-		 	(call checking function that prints results 
-		 		@ x=450, y=guessCount+3)
-		 	numCount = 0;
-		 	guessCount += 50;
-		 }
-		 
-		 
-		 if(guessCount===100)
-		 {
-		 	(call endGame)
-		 }
-	*/
 			
 	}
 	
@@ -139,6 +122,18 @@ function make1 () {
 		guess4 = 1;
 	}
 	
+	if(numCount===4){
+		check();
+		numCount = 0;
+		guessCount += 50;
+	}
+		 
+		 
+	if(guessCount===100)
+	{
+		endGame();
+	}
+	
 }
 function make2 () {
 	var xval = (numCount*20)+5;
@@ -157,6 +152,18 @@ function make2 () {
 	}
 	if(numCount===4){
 		guess4 = 2;
+	}
+	
+	if(numCount===4){
+		check();
+		numCount = 0;
+		guessCount += 50;
+	}
+		 
+		 
+	if(guessCount===100)
+	{
+		endGame();
 	}
 }
 function make3 () {
@@ -177,6 +184,18 @@ function make3 () {
 	if(numCount===4){
 		guess4 = 3;
 	}
+	
+	if(numCount===4){
+		check();
+		numCount = 0;
+		guessCount += 50;
+	}
+		 
+		 
+	if(guessCount===100)
+	{
+		endGame();
+	}
 }
 function make4 () {
 	var xval = (numCount*20)+5;
@@ -195,6 +214,18 @@ function make4 () {
 	}
 	if(numCount===4){
 		guess4 = 4;
+	}
+	
+	if(numCount===4){
+		check();
+		numCount = 0;
+		guessCount += 50;
+	}
+		 
+		 
+	if(guessCount===100)
+	{
+		endGame();
 	}
 }
 function make5 () {
@@ -215,6 +246,18 @@ function make5 () {
 	if(numCount===4){
 		guess4 = 5;
 	}
+	
+	if(numCount===4){
+		check();
+		numCount = 0;
+		guessCount += 50;
+	}
+		 
+		 
+	if(guessCount===100)
+	{
+		endGame();
+	}
 }
 function make6 () {
 	var xval = (numCount*20)+5;
@@ -234,6 +277,25 @@ function make6 () {
 	if(numCount===4){
 		guess4 = 6;
 	}
+	
+	if(numCount===4){
+		check();
+		numCount = 0;
+		guessCount += 50;
+	}
+		 
+		 
+	if(guessCount===100)
+	{
+		endGame();
+	}
+}
+
+function check (){
+	//(call checking function that prints results @ x=450, y=guessCount+3)
+}
+
+function endGame (){
 }
 
 function render () {
