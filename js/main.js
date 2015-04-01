@@ -29,6 +29,12 @@ var guessCount= 0; //what line are we on?
 var numCount = 0; //what digit are we on?
 var background;
 var next;
+var timer1 = 0;
+var timer2 = 0;
+var timer3 = 0;
+var timer4 = 0;
+var timer5 = 0;
+var timer6 = 0;
 
 
 
@@ -71,40 +77,65 @@ function infopage1 () {
 function startpage (){
 	background.loadTexture('bg',0);
 	next.destroy();
-	game.add.sprite(3, 3, 'newline');
-	
+	game.add.sprite(10, 3, 'newline');
+	numCount +=1;
+	update();
 }
 
 function update() {
-	if(this.nums.g1.onTap)
+	if(this.nums.g1.isDown)
 	{
-		make1()
+		if(game.time.now>timer1)
+		{
+			make1();
+			timer1 = game.time.now+2000;
+		}
 			
 	}
 	
-	if(this.nums.g2.onTap)
+	if(this.nums.g2.isDown)
 	{
-		make2();
+		if(game.time.now>timer2)
+		{
+			make2();
+			timer2 = game.time.now+2000;
+		}
 	}
 	
-	if(this.nums.g3.onTap)
+	if(this.nums.g3.isDown)
 	{
-		make3();
+		if(game.time.now>timer3)
+		{
+			make3();
+			timer3 = game.time.now+2000;
+		}
 	}
 	
-	if(this.nums.g4.onTap)
+	if(this.nums.g4.isDown)
 	{
-		make4();
+		if(game.time.now>timer4)
+		{
+			make4();
+			timer4 = game.time.now+2000;
+		}
 	}
 	
-	if(this.nums.g5.onTap)
+	if(this.nums.g5.isDown)
 	{
-		make5();
+		if(game.time.now>timer5)
+		{
+			make5();
+			timer5 = game.time.now+2000;
+		}
 	}
 	
-	if(this.nums.g6.onTap)
+	if(this.nums.g6.isDown)
 	{
-		make6();
+		if(game.time.now>timer6)
+		{
+			make6();
+			timer6 = game.time.now+2000;
+		}
 	}
 
 }
@@ -116,20 +147,17 @@ function make1 () {
 	game.add.sprite(xval,yval, 'n1');
 
 	
-	if(numCount===1){
+	if(numCount===2){
 		guess1 = 1;
 	}
-	if(numCount===2){
+	if(numCount===3){
 		guess2 = 1;
 	}
-	if(numCount===3){
+	if(numCount===4){
 		guess3 = 1;
 	}
-	if(numCount===4){
+	if(numCount===5){
 		guess4 = 1;
-	}
-	
-	if(numCount===4){
 		check();
 		numCount = 0;
 		guessCount += 50;
@@ -148,20 +176,17 @@ function make2 () {
 	var yval = guessCount + 3;
 	game.add.sprite(xval,yval, 'n2');
 	
-	if(numCount===1){
+	if(numCount===2){
 		guess1 = 2;
 	}
-	if(numCount===2){
+	if(numCount===3){
 		guess2 = 2;
 	}
-	if(numCount===3){
+	if(numCount===4){
 		guess3 = 2;
 	}
-	if(numCount===4){
+	if(numCount===5){
 		guess4 = 2;
-	}
-	
-	if(numCount===4){
 		check();
 		numCount = 0;
 		guessCount += 50;
@@ -179,20 +204,17 @@ function make3 () {
 	var yval = guessCount + 3;
 	game.add.sprite(xval,yval, 'n3');
 	
-	if(numCount===1){
+	if(numCount===2){
 		guess1 = 3;
 	}
-	if(numCount===2){
+	if(numCount===3){
 		guess2 = 3;
 	}
-	if(numCount===3){
+	if(numCount===4){
 		guess3 = 3;
 	}
-	if(numCount===4){
+	if(numCount===5){
 		guess4 = 3;
-	}
-	
-	if(numCount===4){
 		check();
 		numCount = 0;
 		guessCount += 50;
@@ -210,20 +232,17 @@ function make4 () {
 	var yval = guessCount + 3;
 	game.add.sprite(xval,yval, 'n4');
 	
-	if(numCount===1){
+	if(numCount===2){
 		guess1 = 4;
 	}
-	if(numCount===2){
+	if(numCount===3){
 		guess2 = 4;
 	}
-	if(numCount===3){
+	if(numCount===4){
 		guess3 = 4;
 	}
-	if(numCount===4){
+	if(numCount===5){
 		guess4 = 4;
-	}
-	
-	if(numCount===4){
 		check();
 		numCount = 0;
 		guessCount += 50;
@@ -241,20 +260,17 @@ function make5 () {
 	var yval = guessCount + 3;
 	game.add.sprite(xval,yval, 'n5');
 	
-	if(numCount===1){
+	if(numCount===2){
 		guess1 = 5;
 	}
-	if(numCount===2){
+	if(numCount===3){
 		guess2 = 5;
 	}
-	if(numCount===3){
+	if(numCount===4){
 		guess3 = 5;
 	}
-	if(numCount===4){
+	if(numCount===5){
 		guess4 = 5;
-	}
-	
-	if(numCount===4){
 		check();
 		numCount = 0;
 		guessCount += 50;
@@ -272,20 +288,17 @@ function make6 () {
 	var yval = guessCount + 3;
 	game.add.sprite(xval,yval, 'n6');
 	
-	if(numCount===1){
+	if(numCount===2){
 		guess1 = 6;
 	}
-	if(numCount===2){
+	if(numCount===3){
 		guess2 = 6;
 	}
-	if(numCount===3){
+	if(numCount===4){
 		guess3 = 6;
 	}
-	if(numCount===4){
+	if(numCount===5){
 		guess4 = 6;
-	}
-	
-	if(numCount===4){
 		check();
 		numCount = 0;
 		guessCount += 50;
