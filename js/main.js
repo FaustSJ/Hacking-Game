@@ -2,14 +2,14 @@ var game = new Phaser.Game(900, 500, Phaser.CANVAS, 'game', { preload: preload, 
 
 function preload() {
 	game.load.image('bg', 'assets/cpu.jpg');
-	game.load.image('n0', 'assets/n0.jpg');
-	game.load.image('n1', 'assets/n1.jpg');
-	game.load.image('n2', 'assets/n2.jpg');
-	game.load.image('n3','assets/n3.jpg');
-	game.load.image('n4','assets/n4.jpg');
-	game.load.image('n5','assets/n5.jpg');
-	game.load.image('n6','assets/n6.jpg');
-	game.load.image('newline','assets/newline.jpg');
+	game.load.image('n0', 'assets/n0.png');
+	game.load.image('n1', 'assets/n1.png');
+	game.load.image('n2', 'assets/n2.png');
+	game.load.image('n3','assets/n3.png');
+	game.load.image('n4','assets/n4.png');
+	game.load.image('n5','assets/n5.png');
+	game.load.image('n6','assets/n6.png');
+	game.load.image('newline','assets/newline.png');
 	game.load.image('intro1', 'assets/intro1.jpg');
 	game.load.image('intro2','assets/intro2.jpg');
 	game.load.image('intro3','assets/intro3.jpg');
@@ -39,7 +39,7 @@ function create() {
 	var num4 = game.rnd.integerInRange(1, 6);
 	
 	background = game.add.sprite(0, 0, 'intro1');
-	next = game.add.sprite(440,300, 'next');
+	next = game.add.sprite(370,400, 'next');
 	
 	next.inputEnabled = true;
   	next.events.onInputDown.add(infopage1, this);
@@ -65,7 +65,14 @@ function infopage1 () {
 	background.loadTexture('intro3',0);
 	next.loadTexture('ok',0);
 	next.inputEnabled = true;
-  	next.events.onInputDown.add(update, this);
+  	next.events.onInputDown.add(startpage, this);
+}
+
+function startpage (){
+	background.loadTexture('bg',0);
+	next.destroy();
+	game.add.sprite(3, 3, 'newline');
+	
 }
 
 function update() {
@@ -106,7 +113,7 @@ function make1 () {
 	var xval = (numCount*20)+5;
 	numCount += 1;
 	var yval = guessCount + 3;
-	var someSprite = game.add.sprite(xval,yval, 'n1');
+	game.add.sprite(xval,yval, 'n1');
 
 	
 	if(numCount===1){
@@ -139,7 +146,7 @@ function make2 () {
 	var xval = (numCount*20)+5;
 	numCount += 1;
 	var yval = guessCount + 3;
-	var someSprite = game.add.sprite(xval,yval, 'n2');
+	game.add.sprite(xval,yval, 'n2');
 	
 	if(numCount===1){
 		guess1 = 2;
@@ -170,7 +177,7 @@ function make3 () {
 	var xval = (numCount*20)+5;
 	numCount += 1;
 	var yval = guessCount + 3;
-	var someSprite = game.add.sprite(xval,yval, 'n3');
+	game.add.sprite(xval,yval, 'n3');
 	
 	if(numCount===1){
 		guess1 = 3;
@@ -201,7 +208,7 @@ function make4 () {
 	var xval = (numCount*20)+5;
 	numCount += 1;
 	var yval = guessCount + 3;
-	var someSprite = game.add.sprite(xval,yval, 'n4');
+	game.add.sprite(xval,yval, 'n4');
 	
 	if(numCount===1){
 		guess1 = 4;
@@ -232,7 +239,7 @@ function make5 () {
 	var xval = (numCount*20)+5;
 	numCount += 1;
 	var yval = guessCount + 3;
-	var someSprite = game.add.sprite(xval,yval, 'n5');
+	game.add.sprite(xval,yval, 'n5');
 	
 	if(numCount===1){
 		guess1 = 5;
@@ -263,7 +270,7 @@ function make6 () {
 	var xval = (numCount*20)+5;
 	numCount += 1;
 	var yval = guessCount + 3;
-	var someSprite = game.add.sprite(xval,yval, 'n6');
+	game.add.sprite(xval,yval, 'n6');
 	
 	if(numCount===1){
 		guess1 = 6;
@@ -293,6 +300,19 @@ function make6 () {
 
 function check (){
 	//(call checking function that prints results @ x=450, y=guessCount+3)
+	var xval = 450;
+	var amount = 0;
+	if (guess1===num1){
+		var yval = y=guessCount+3;
+		game.add.sprite(xval,yval, 'n1');
+		amount += 1;
+	}
+	if (guess2===num2){
+	}
+	if (guess3===num3){
+	}
+	if (guess4===num4){
+	}
 }
 
 function endGame (){
