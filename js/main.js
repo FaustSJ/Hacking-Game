@@ -312,23 +312,150 @@ function make6 () {
 }
 
 function check (){
-	//(call checking function that prints results @ x=450, y=guessCount+3)
 	var xval = 450;
 	var amount = 0;
+	var yval = 0;
+	
+	//first, any 1's are taken care of.
 	if (guess1===num1){
-		var yval = y=guessCount+3;
+		yval = y=guessCount+3;
+		xval += (amount*20);
 		game.add.sprite(xval,yval, 'n1');
 		amount += 1;
 	}
 	if (guess2===num2){
+		yval = y=guessCount+3;
+		xval += (amount*20);
+		game.add.sprite(xval,yval, 'n1');
+		amount += 1;
 	}
 	if (guess3===num3){
+		yval = y=guessCount+3;
+		xval += (amount*20);
+		game.add.sprite(xval,yval, 'n1');
+		amount += 1;
 	}
 	if (guess4===num4){
+		yval = y=guessCount+3;
+		xval += (amount*20);
+		game.add.sprite(xval,yval, 'n1');
+		amount += 1;
+	}
+	
+	if(amount===4){
+		winning();
+	}
+	else
+	{
+		//then, any zeros are counted
+		//By nesting the if statements, we avoid any repeats
+		
+		//guess1
+		if(guess1===num2){
+			yval = y=guessCount+3;
+			xval += (amount*20);
+			game.add.sprite(xval,yval, 'n0');
+			amount += 1;
+		}
+		else{
+			if(guess1===num3){
+				yval = y=guessCount+3;
+				xval += (amount*20);
+				game.add.sprite(xval,yval, 'n0');
+				amount += 1;
+			
+			}
+			else{
+				if(guess1===num4){
+					yval = y=guessCount+3;
+					xval += (amount*20);
+					game.add.sprite(xval,yval, 'n0');
+					amount += 1;
+				}
+			}
+		}
+		
+		//guess2
+		if(guess2===num1){
+			yval = y=guessCount+3;
+			xval += (amount*20);
+			game.add.sprite(xval,yval, 'n0');
+			amount += 1;
+		}
+		else{
+			if(guess2===num3){
+				yval = y=guessCount+3;
+				xval += (amount*20);
+				game.add.sprite(xval,yval, 'n0');
+				amount += 1;
+			
+			}
+			else{
+				if(guess2===num4){
+					yval = y=guessCount+3;
+					xval += (amount*20);
+					game.add.sprite(xval,yval, 'n0');
+					amount += 1;
+				}
+			}
+		}
+		
+		//guess3
+		if(guess3===num2){
+			yval = y=guessCount+3;
+			xval += (amount*20);
+			game.add.sprite(xval,yval, 'n0');
+			amount += 1;
+		}
+		else{
+			if(guess3===num1){
+				yval = y=guessCount+3;
+				xval += (amount*20);
+				game.add.sprite(xval,yval, 'n0');
+				amount += 1;
+			
+			}
+			else{
+				if(guess3===num4){
+					yval = y=guessCount+3;
+					xval += (amount*20);
+					game.add.sprite(xval,yval, 'n0');
+					amount += 1;
+				}
+			}
+		}
+		
+		//guess4
+		if(guess4===num2){
+			yval = y=guessCount+3;
+			xval += (amount*20);
+			game.add.sprite(xval,yval, 'n0');
+			amount += 1;
+		}
+		else{
+			if(guess4===num3){
+				yval = y=guessCount+3;
+				xval += (amount*20);
+				game.add.sprite(xval,yval, 'n0');
+				amount += 1;
+			
+			}
+			else{
+				if(guess4===num1){
+					yval = y=guessCount+3;
+					xval += (amount*20);
+					game.add.sprite(xval,yval, 'n0');
+					amount += 1;
+				}
+			}
+		}
 	}
 }
 
 function endGame (){
+}
+
+function winning (){
 }
 
 function render () {
