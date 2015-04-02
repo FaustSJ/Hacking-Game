@@ -16,6 +16,8 @@ function preload() {
 	game.load.image('intro3','assets/intro3.jpg');
 	game.load.image('ok','assets/ok.jpg');
 	game.load.image('next','assets/next.jpg');
+	game.load.image('alert','assets/alert.jpg');
+	game.load.image('win','assets/winning.jpg');
 }
 
 var num1;
@@ -61,28 +63,29 @@ function create() {
             };
 	
 }
-
-function infopage1 () {
+////////////////////////////////////////////////////////////////////////////////
+function infopage1() {
 	background.loadTexture('intro2',0);
 	next.inputEnabled = true;
   	next.events.onInputDown.add(infopage2, this);
 }
 
-function infopage1 () {
+function infopage2() {
 	background.loadTexture('intro3',0);
 	next.loadTexture('ok',0);
 	next.inputEnabled = true;
   	next.events.onInputDown.add(startpage, this);
 }
 
-function startpage (){
+function startpage(){
 	background.loadTexture('bg',0);
-	next.destroy();
+	next.visible = false;
+	next.inputEnabled = false;
 	game.add.sprite(10, 3, 'newline');
 	numCount +=1;
 	update();
 }
-
+////////////////////////////////////////////////////////////////////////////////
 function update() {
 	if(this.nums.g1.isDown)
 	{
@@ -140,8 +143,8 @@ function update() {
 	}
 
 }
-
-function make1 () {
+////////////////////////////////////////////////////////////////////////////////
+function make1() {
 	var xval = (numCount*20)+5;
 	numCount += 1;
 	var yval = guessCount + 3;
@@ -160,8 +163,10 @@ function make1 () {
 	if(numCount===5){
 		guess4 = 1;
 		check();
-		numCount = 0;
+		numCount = 1;
 		guessCount += 50;
+		yval = guessCount+3;
+		game.add.sprite(10, yval, 'newline');
 	}
 		 
 		 
@@ -171,7 +176,7 @@ function make1 () {
 	}
 	
 }
-function make2 () {
+function make2() {
 	var xval = (numCount*20)+5;
 	numCount += 1;
 	var yval = guessCount + 3;
@@ -189,8 +194,10 @@ function make2 () {
 	if(numCount===5){
 		guess4 = 2;
 		check();
-		numCount = 0;
+		numCount = 1;
 		guessCount += 50;
+		yval = guessCount+3;
+		game.add.sprite(10, yval, 'newline');
 	}
 		 
 		 
@@ -199,7 +206,7 @@ function make2 () {
 		endGame();
 	}
 }
-function make3 () {
+function make3() {
 	var xval = (numCount*20)+5;
 	numCount += 1;
 	var yval = guessCount + 3;
@@ -217,8 +224,10 @@ function make3 () {
 	if(numCount===5){
 		guess4 = 3;
 		check();
-		numCount = 0;
+		numCount = 1;
 		guessCount += 50;
+		yval = guessCount+3;
+		game.add.sprite(10, yval, 'newline');
 	}
 		 
 		 
@@ -227,7 +236,7 @@ function make3 () {
 		endGame();
 	}
 }
-function make4 () {
+function make4() {
 	var xval = (numCount*20)+5;
 	numCount += 1;
 	var yval = guessCount + 3;
@@ -245,8 +254,10 @@ function make4 () {
 	if(numCount===5){
 		guess4 = 4;
 		check();
-		numCount = 0;
+		numCount = 1;
 		guessCount += 50;
+		yval = guessCount+3;
+		game.add.sprite(10, yval, 'newline');
 	}
 		 
 		 
@@ -255,7 +266,7 @@ function make4 () {
 		endGame();
 	}
 }
-function make5 () {
+function make5() {
 	var xval = (numCount*20)+5;
 	numCount += 1;
 	var yval = guessCount + 3;
@@ -273,8 +284,10 @@ function make5 () {
 	if(numCount===5){
 		guess4 = 5;
 		check();
-		numCount = 0;
+		numCount = 1;
 		guessCount += 50;
+		yval = guessCount+3;
+		game.add.sprite(10, yval, 'newline');
 	}
 		 
 		 
@@ -283,7 +296,7 @@ function make5 () {
 		endGame();
 	}
 }
-function make6 () {
+function make6() {
 	var xval = (numCount*20)+5;
 	numCount += 1;
 	var yval = guessCount + 3;
@@ -301,8 +314,10 @@ function make6 () {
 	if(numCount===5){
 		guess4 = 6;
 		check();
-		numCount = 0;
+		numCount = 1;
 		guessCount += 50;
+		yval = guessCount+3;
+		game.add.sprite(10, yval, 'newline');
 	}
 		 
 		 
@@ -311,8 +326,8 @@ function make6 () {
 		endGame();
 	}
 }
-
-function check (){
+////////////////////////////////////////////////////////////////////////////////
+function check(){
 	var xval = 450;
 	var amount = 0;
 	var yval = 0;
@@ -452,21 +467,32 @@ function check (){
 		}
 	}
 }
-
-function endGame (){
-	next.revive();
+////////////////////////////////////////////////////////////////////////////////
+function endGame(){
+	background.loadTexture('alert',0);
+	next.visible= true;
+	next.loadTexture('ok',0);
+	next.inputEnabled = true;
+  	next.events.onInputDown.add(restart, this);
 	
 }
 
-function winning (){
-	next.revive();
+function winning(){
+	background.loadTexture('win',0);
+	next.visible = true;
+	next.loadTexture('ok',0);
+	next.inputEnabled = true;
+  	next.events.onInputDown.add(restart, this);
 }
 
-function restart (){
-	
+function restart(){
+	background.loadTexture('intro1',0);
+	next.loadTexture('next',0);
+	next.inputEnabled = true;
+  	next.events.onInputDown.add(infopage1, this);
 }
 
-function render () {
+function render() {
 
     // game.debug.text(game.time.physicsElapsed, 32, 32);
     //game.debug.body(player);
