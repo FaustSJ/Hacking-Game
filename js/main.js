@@ -42,10 +42,11 @@ var timer6 = 0;
 
 
 function create() {
-	var num1 = game.rnd.integerInRange(1, 6);
-	var num2 = game.rnd.integerInRange(1, 6);
-	var num3 = game.rnd.integerInRange(1, 6);
-	var num4 = game.rnd.integerInRange(1, 6);
+	num1 = game.rnd.integerInRange(1, 6);
+	num2 = game.rnd.integerInRange(1, 6);
+	num3 = game.rnd.integerInRange(1, 6);
+	num4 = game.rnd.integerInRange(1, 6);
+
 	
 	background = game.add.sprite(0, 0, 'intro1');
 	next = game.add.sprite(370,400, 'next');
@@ -68,6 +69,8 @@ function infopage1() {
 	background.loadTexture('intro2',0);
 	next.inputEnabled = true;
   	next.events.onInputDown.add(infopage2, this);
+  	
+  	console.log("%d%d%d%d",num1, num2, num3, num4);
 }
 
 function infopage2() {
@@ -87,22 +90,23 @@ function startpage(){
 }
 ////////////////////////////////////////////////////////////////////////////////
 function update() {
+	
 	if(this.nums.g1.isDown)
 	{
 		if(game.time.now>timer1)
 		{
 			make1();
-			timer1 = game.time.now+2000;
+			timer1 = game.time.now+600;
 		}
-			
-	}
+		
+	} 
 	
 	if(this.nums.g2.isDown)
 	{
 		if(game.time.now>timer2)
 		{
 			make2();
-			timer2 = game.time.now+2000;
+			timer2 = game.time.now+600;
 		}
 	}
 	
@@ -111,7 +115,7 @@ function update() {
 		if(game.time.now>timer3)
 		{
 			make3();
-			timer3 = game.time.now+2000;
+			timer3 = game.time.now+600;
 		}
 	}
 	
@@ -120,7 +124,7 @@ function update() {
 		if(game.time.now>timer4)
 		{
 			make4();
-			timer4 = game.time.now+2000;
+			timer4 = game.time.now+600;
 		}
 	}
 	
@@ -129,7 +133,7 @@ function update() {
 		if(game.time.now>timer5)
 		{
 			make5();
-			timer5 = game.time.now+2000;
+			timer5 = game.time.now+600;
 		}
 	}
 	
@@ -138,14 +142,14 @@ function update() {
 		if(game.time.now>timer6)
 		{
 			make6();
-			timer6 = game.time.now+2000;
+			timer6 = game.time.now+600;
 		}
 	}
 
 }
 ////////////////////////////////////////////////////////////////////////////////
 function make1() {
-	var xval = (numCount*20)+5;
+	var xval = (numCount*20)+7;
 	numCount += 1;
 	var yval = guessCount + 3;
 	game.add.sprite(xval,yval, 'n1');
@@ -165,19 +169,21 @@ function make1() {
 		check();
 		numCount = 1;
 		guessCount += 50;
-		yval = guessCount+3;
-		game.add.sprite(10, yval, 'newline');
 	}
 		 
 		 
-	if(guessCount===100)
+	if(guessCount===500)
 	{
 		endGame();
+	}
+	else{
+		yval = guessCount+3;
+		game.add.sprite(10, yval, 'newline');
 	}
 	
 }
 function make2() {
-	var xval = (numCount*20)+5;
+	var xval = (numCount*20)+7;
 	numCount += 1;
 	var yval = guessCount + 3;
 	game.add.sprite(xval,yval, 'n2');
@@ -196,18 +202,20 @@ function make2() {
 		check();
 		numCount = 1;
 		guessCount += 50;
-		yval = guessCount+3;
-		game.add.sprite(10, yval, 'newline');
 	}
 		 
 		 
-	if(guessCount===100)
+	if(guessCount===500)
 	{
 		endGame();
 	}
+	else{
+		yval = guessCount+3;
+		game.add.sprite(10, yval, 'newline');
+	}
 }
 function make3() {
-	var xval = (numCount*20)+5;
+	var xval = (numCount*20)+7;
 	numCount += 1;
 	var yval = guessCount + 3;
 	game.add.sprite(xval,yval, 'n3');
@@ -226,18 +234,20 @@ function make3() {
 		check();
 		numCount = 1;
 		guessCount += 50;
-		yval = guessCount+3;
-		game.add.sprite(10, yval, 'newline');
 	}
 		 
 		 
-	if(guessCount===100)
+	if(guessCount===500)
 	{
 		endGame();
 	}
+	else{
+		yval = guessCount+3;
+		game.add.sprite(10, yval, 'newline');
+	}
 }
 function make4() {
-	var xval = (numCount*20)+5;
+	var xval = (numCount*20)+7;
 	numCount += 1;
 	var yval = guessCount + 3;
 	game.add.sprite(xval,yval, 'n4');
@@ -256,18 +266,20 @@ function make4() {
 		check();
 		numCount = 1;
 		guessCount += 50;
-		yval = guessCount+3;
-		game.add.sprite(10, yval, 'newline');
 	}
 		 
 		 
-	if(guessCount===100)
+	if(guessCount===500)
 	{
 		endGame();
 	}
+	else{
+		yval = guessCount+3;
+		game.add.sprite(10, yval, 'newline');
+	}
 }
 function make5() {
-	var xval = (numCount*20)+5;
+	var xval = (numCount*20)+7;
 	numCount += 1;
 	var yval = guessCount + 3;
 	game.add.sprite(xval,yval, 'n5');
@@ -286,18 +298,20 @@ function make5() {
 		check();
 		numCount = 1;
 		guessCount += 50;
-		yval = guessCount+3;
-		game.add.sprite(10, yval, 'newline');
 	}
 		 
 		 
-	if(guessCount===100)
+	if(guessCount===500)
 	{
 		endGame();
 	}
+	else{
+		yval = guessCount+3;
+		game.add.sprite(10, yval, 'newline');
+	}
 }
 function make6() {
-	var xval = (numCount*20)+5;
+	var xval = (numCount*20)+7;
 	numCount += 1;
 	var yval = guessCount + 3;
 	game.add.sprite(xval,yval, 'n6');
@@ -316,14 +330,16 @@ function make6() {
 		check();
 		numCount = 1;
 		guessCount += 50;
-		yval = guessCount+3;
-		game.add.sprite(10, yval, 'newline');
 	}
 		 
 		 
-	if(guessCount===100)
+	if(guessCount===500)
 	{
 		endGame();
+	}
+	else{
+		yval = guessCount+3;
+		game.add.sprite(10, yval, 'newline');
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////
@@ -331,29 +347,29 @@ function check(){
 	var xval = 450;
 	var amount = 0;
 	var yval = 0;
-	
+
 	//first, any 1's are taken care of.
 	if (guess1===num1){
-		yval = y=guessCount+3;
-		xval += (amount*20);
+		yval = guessCount+3;
+		xval += 20;
 		game.add.sprite(xval,yval, 'n1');
 		amount += 1;
 	}
 	if (guess2===num2){
-		yval = y=guessCount+3;
-		xval += (amount*20);
+		yval = guessCount+3;
+		xval += 20;
 		game.add.sprite(xval,yval, 'n1');
 		amount += 1;
 	}
 	if (guess3===num3){
-		yval = y=guessCount+3;
-		xval += (amount*20);
+		yval = guessCount+3;
+		xval += 20;
 		game.add.sprite(xval,yval, 'n1');
 		amount += 1;
 	}
 	if (guess4===num4){
-		yval = y=guessCount+3;
-		xval += (amount*20);
+		yval = guessCount+3;
+		xval += 20;
 		game.add.sprite(xval,yval, 'n1');
 		amount += 1;
 	}
@@ -367,129 +383,140 @@ function check(){
 		//By nesting the if statements, we avoid any repeats
 		
 		//guess1
-		if(guess1===num2){
-			yval = y=guessCount+3;
-			xval += (amount*20);
+		if(guess1===num2 && guess1!=num1){
+			yval = guessCount+3;
+			xval += 20;
 			game.add.sprite(xval,yval, 'n0');
 			amount += 1;
 		}
+		else if(guess1===num3 && guess1!=num1)
+		{
+			yval = guessCount+3;
+			xval += 20;
+			game.add.sprite(xval,yval, 'n0');
+			amount += 1;
+			
+		}
 		else{
-			if(guess1===num3){
-				yval = y=guessCount+3;
-				xval += (amount*20);
+			if(guess1===num4 && guess1!=num1)
+			{
+				yval = guessCount+3;
+				xval += 20;
 				game.add.sprite(xval,yval, 'n0');
 				amount += 1;
-			
-			}
-			else{
-				if(guess1===num4){
-					yval = y=guessCount+3;
-					xval += (amount*20);
-					game.add.sprite(xval,yval, 'n0');
-					amount += 1;
-				}
 			}
 		}
+
 		
 		//guess2
-		if(guess2===num1){
-			yval = y=guessCount+3;
-			xval += (amount*20);
+		if(guess2===num1 && guess2!=num2){
+			yval = guessCount+3;
+			xval += 20;
 			game.add.sprite(xval,yval, 'n0');
 			amount += 1;
 		}
-		else{
-			if(guess2===num3){
-				yval = y=guessCount+3;
-				xval += (amount*20);
+		else if(guess2===num3 && guess2!=num2)
+		{
+			yval = guessCount+3;
+			xval += 20;
+			game.add.sprite(xval,yval, 'n0');
+			amount += 1;
+			
+		}
+		else{ 
+			if(guess2===num4 && guess2!=num2)
+			{
+				yval = guessCount+3;
+				xval += 20;
 				game.add.sprite(xval,yval, 'n0');
 				amount += 1;
-			
-			}
-			else{
-				if(guess2===num4){
-					yval = y=guessCount+3;
-					xval += (amount*20);
-					game.add.sprite(xval,yval, 'n0');
-					amount += 1;
-				}
 			}
 		}
 		
+		
 		//guess3
-		if(guess3===num2){
-			yval = y=guessCount+3;
-			xval += (amount*20);
+		if(guess3===num2 && guess3!=num3)
+		{
+			yval = guessCount+3;
+			xval += 20;
 			game.add.sprite(xval,yval, 'n0');
 			amount += 1;
 		}
+		else if(guess3===num1 && guess3!=num3)
+		{
+			yval = guessCount+3;
+			xval += 20;
+			game.add.sprite(xval,yval, 'n0');
+			amount += 1;
+			
+		}
 		else{
-			if(guess3===num1){
-				yval = y=guessCount+3;
-				xval += (amount*20);
+			if(guess3===num4 && guess3!=num3)
+			{
+				yval = guessCount+3;
+				xval += 20;
 				game.add.sprite(xval,yval, 'n0');
 				amount += 1;
-			
-			}
-			else{
-				if(guess3===num4){
-					yval = y=guessCount+3;
-					xval += (amount*20);
-					game.add.sprite(xval,yval, 'n0');
-					amount += 1;
-				}
 			}
 		}
 		
 		//guess4
-		if(guess4===num2){
-			yval = y=guessCount+3;
-			xval += (amount*20);
+		if(guess4===num2 && guess4!=num4)
+		{
+			yval = guessCount+3;
+			xval += 20;
 			game.add.sprite(xval,yval, 'n0');
 			amount += 1;
 		}
+		else if(guess4===num3 && guess4!=num4)
+		{
+			yval = guessCount+3;
+			xval += 20;
+			game.add.sprite(xval,yval, 'n0');
+			amount += 1;
+			
+		}
 		else{
-			if(guess4===num3){
-				yval = y=guessCount+3;
-				xval += (amount*20);
+			if(guess4===num1 && guess4!=num4)
+			{
+				yval = guessCount+3;
+				xval += 20;
 				game.add.sprite(xval,yval, 'n0');
 				amount += 1;
+			}
 			
-			}
-			else{
-				if(guess4===num1){
-					yval = y=guessCount+3;
-					xval += (amount*20);
-					game.add.sprite(xval,yval, 'n0');
-					amount += 1;
-				}
-			}
 		}
 	}
 }
 ////////////////////////////////////////////////////////////////////////////////
 function endGame(){
-	background.loadTexture('alert',0);
+	background = game.add.sprite(0, 0, 'alert');
 	next.visible= true;
-	next.loadTexture('ok',0);
+	next = game.add.sprite(370,400, 'ok');
 	next.inputEnabled = true;
   	next.events.onInputDown.add(restart, this);
 	
 }
 
 function winning(){
-	background.loadTexture('win',0);
+	background = game.add.sprite(0, 0, 'win');
 	next.visible = true;
-	next.loadTexture('ok',0);
+	next = game.add.sprite(370, 400, 'ok');
 	next.inputEnabled = true;
-  	next.events.onInputDown.add(restart, this);
+  	next.events.onInputDown.add(restart, this); 
 }
+
 
 function restart(){
 	background.loadTexture('intro1',0);
+	next.visible = true;
 	next.loadTexture('next',0);
-	next.inputEnabled = true;
+	
   	next.events.onInputDown.add(infopage1, this);
+  	num1 = game.rnd.integerInRange(1, 6);
+	num2 = game.rnd.integerInRange(1, 6);
+	num3 = game.rnd.integerInRange(1, 6);
+	num4 = game.rnd.integerInRange(1, 6);
 }
 
 function render() {
