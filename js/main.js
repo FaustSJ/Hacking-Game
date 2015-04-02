@@ -1,3 +1,4 @@
+//http://wonderdeep.github.io/LostTrack/index.html
 var game = new Phaser.Game(900, 500, Phaser.CANVAS, 'game', { preload: preload, create: create, update: update, render: render });
 
 function preload() {
@@ -453,9 +454,16 @@ function check (){
 }
 
 function endGame (){
+	next.revive();
+	
 }
 
 function winning (){
+	next.revive();
+}
+
+function restart (){
+	
 }
 
 function render () {
