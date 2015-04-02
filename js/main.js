@@ -11,7 +11,7 @@ function preload() {
 	game.load.image('n5','assets/n5.png');
 	game.load.image('n6','assets/n6.png');
 	game.load.image('newline','assets/newline.png');
-	game.load.image('intro1', 'assets/intro1.jpg');
+	game.load.image('intro1', 'assets/Intro1.jpg');
 	game.load.image('intro2','assets/intro2.jpg');
 	game.load.image('intro3','assets/intro3.jpg');
 	game.load.image('ok','assets/ok.jpg');
